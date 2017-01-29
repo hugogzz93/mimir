@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'activity/create'
+
+  get 'tag/create'
+
+  get 'money/create'
+
   get 'activities/show'
 
   devise_for :users
