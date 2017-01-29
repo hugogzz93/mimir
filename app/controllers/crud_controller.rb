@@ -1,5 +1,10 @@
 class CrudController < ApplicationController
   before_action :get_object, only: [:show, :update, :destroy]
+
+  def new
+    @object = model.new
+  end
+
   def create
     model.create object_params
   end

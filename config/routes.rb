@@ -3,6 +3,8 @@ Rails.application.routes.draw do
  
   get 'home/index'
 
+  resources :foods
+
   # get 'activity/create'
 
   # get 'tag/create'
