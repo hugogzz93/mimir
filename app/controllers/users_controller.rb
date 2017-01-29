@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < CrudController
 
   def dashboard
     

@@ -1,4 +1,4 @@
-class MoneyController < ApplicationController
+class MoneyController < CrudController
   def create
   end
 end

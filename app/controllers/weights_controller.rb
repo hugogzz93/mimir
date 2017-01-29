@@ -1,2 +1,2 @@
-class WeightsController < ApplicationController
+class WeightsController < CrudController
 end

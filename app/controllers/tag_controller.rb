@@ -1,4 +1,4 @@
-class TagController < ApplicationController
+class TagController < CrudController
   def create
   end
 end
