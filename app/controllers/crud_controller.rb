@@ -10,11 +10,7 @@ class CrudController < ApplicationController
   end
 
   def create
-    if model.create object_params
-      redirect_to collection_path
-    else
-      render :new
-    end
+    object_responder
   end
 
   def show
@@ -51,6 +47,28 @@ class CrudController < ApplicationController
   end
 
   private
+
+  def object_responder
+    if model.create object_params
+      respond_to do |format|
+        format.html {redirect_to collection_path }
+        format.js {
+          @message = 'Success!'
+          @submessage = "#{model.name.capitalize} Updated!"
+          @type = 'success'
+        }
+      end
+    else
+      respond_to do |format|
+        format.html {render :new}
+        format.js {
+          @message = 'Error'
+          @submessage = "#{@object.errors.full_messages.first}"
+          @type = 'error'
+        }
+      end
+    end
+  end
 
   def model
     @klass ||= controller_name.singularize.camelize.constantize
