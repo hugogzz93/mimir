@@ -5,9 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
+
 gem "paranoia", "~> 2.2"
 
-gem "twitter-bootstrap-rails"
+gem 'bootstrap', '~> 4.0.0.alpha6'
 
 gem "slim-rails"
 

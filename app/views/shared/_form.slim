@@ -1,0 +1,10 @@
+= simple_form_for object do |f|
+  = f.error_notification
+
+  .form-inputs
+  - object.attributes.each do |attr|
+    - unless ["created_at","updated_at","deleted_at"].include? attr.first
+      = f.input attr.first.to_sym 
+
+  .form-actions
+    = f.button :submit
