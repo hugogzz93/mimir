@@ -7,3 +7,10 @@ ul.nav.nav-tabs
   - @objects.each do |o|
     .tab-pane role="tabpanel" id="#{o.class.name.capitalize}"
       = render partial: 'shared/form', locals: {object: o, ajax: true}
+
+- @objects.each do |o|
+  .card
+    .card-header
+      = o.class.name
+    .card-block
+      canvas id="#{o.class.name.downcase}-chart" width="100" height="100"

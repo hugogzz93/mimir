@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require sweetalert.min.js
+//= require Chart
 //= require_tree .
