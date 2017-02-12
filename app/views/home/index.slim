@@ -6,4 +6,4 @@ ul.nav.nav-tabs
 .tab-content
   - @objects.each do |o|
     .tab-pane role="tabpanel" id="#{o.class.name.capitalize}"
-      = render partial: 'shared/form', locals: {object: o}
+      = render partial: 'shared/form', locals: {object: o, ajax: true}

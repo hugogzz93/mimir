@@ -1,9 +1,9 @@
-= simple_form_for object do |f|
+= simple_form_for object, remote: ajax do |f|
   = f.error_notification
 
   .form-inputs
   - object.attributes.each do |attr|
-    - unless ["created_at","updated_at","deleted_at"].include? attr.first
+    - unless ["created_at","updated_at","deleted_at", "user_id"].include? attr.first
       = f.input attr.first.to_sym 
 
   .form-actions
