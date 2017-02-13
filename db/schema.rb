@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129232920) do
+ActiveRecord::Schema.define(version: 20170213140835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 20170129232920) do
   end
 
   create_table "money", force: :cascade do |t|
-    t.decimal  "value",      precision: 8, scale: 2, null: false
-    t.integer  "user_id",                            null: false
-    t.boolean  "expense",                            null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.float    "value",      null: false
+    t.integer  "user_id",    null: false
+    t.boolean  "expense",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_money_on_deleted_at", using: :btree
     t.index ["user_id"], name: "index_money_on_user_id", using: :btree
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20170129232920) do
   end
 
   create_table "weights", force: :cascade do |t|
-    t.integer  "value"
+    t.float    "value"
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
