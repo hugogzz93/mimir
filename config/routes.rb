@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
-  resources :money
-  resources :activities
-  resources :weights
-  resources :foods
+  resources :money, :banners, :tasks, :activities, :weights, :foods
 
   # get 'activity/create'
 
