@@ -6,8 +6,21 @@ class Money < ApplicationRecord
   def self.label
     "Savings"
   end
-  
-  def value
-    expense ? -1 * read_attribute(:value) : read_attribute(:value)
+
+  class << self
+    def chart_datasets(objects)
+      [{
+        label: 'Income',
+        data: objects.where(expense: false).map(&:value),
+        backgroundColor: "rgba(81, 157, 178,0.1)",
+        borderColor: "#519D9E",
+      }, {
+        label: 'Expense',
+        data: objects.where(expense: true).map(&:value),
+        backgroundColor: "rgba(229,58,64,0.3)",
+        borderColor: "#E53A40",
+      }]
+    end
   end
+
 end

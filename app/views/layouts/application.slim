@@ -8,7 +8,7 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
-  body
+  body data-controller = controller.controller_name data-action = controller.action_name
     = render partial: 'shared/navbar'
     p.notice= notice
     .container

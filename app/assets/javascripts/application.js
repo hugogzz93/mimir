@@ -19,14 +19,8 @@
 //= require Chart
 //= require_tree .
 
-
-// function extend (arg1, arg2) {
-//   var obj = {}
-//   for each (var item in Object.keys(arg1)) {
-//     obj[item] = arg1[item]
-//   }
-//   for each (var item in Object.keys(arg1)) {
-//     obj[item] = arg1[item]
-//   }
-//   return obj
-// }
+$(document).on("turbolinks:load", function(){
+  var data = $('body').data();
+  $(document).trigger(data.controller + ':loaded');
+  $(document).trigger(data.controller + '#' + data.action + ':loaded');
+});
