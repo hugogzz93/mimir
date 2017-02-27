@@ -1,6 +1,10 @@
 = render partial: 'banners/banner_view', locals: { object: @banner }
 = render partial: 'tasks/daily_list', locals: { objects: @tasks,
                                                 date: Time.zone.now}
+div class="alert alert-#{@state > 0 ? 'success' : 'danger'}" role="alert"
+  | Savings : 
+  strong = "$ #{@state}"
+
 ul.nav.nav-tabs
   - @objects.each do |o|
     li.nav-item

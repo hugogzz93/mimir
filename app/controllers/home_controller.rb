@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+  	@state = Money.state
     @banner = Banner.last
     @tasks =  Task.tasks_for Time.zone.now, "day"
     @objects = [Money.new, Activity.new, Weight.new, Task.new, Banner.new]

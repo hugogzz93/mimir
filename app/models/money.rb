@@ -8,6 +8,12 @@ class Money < ApplicationRecord
   end
 
   class << self
+
+    def state
+      state = Money.where(expense:false).map(&:value).reduce(:+) -
+              Money.where(expense:true).map(&:value).reduce(:+)
+    end
+
     def chart_datasets(objects)
       [{
         label: 'Income',
