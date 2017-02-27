@@ -1,5 +1,5 @@
 .card
-    .card-header = "Edit #{object.class.name}"
+    .card-header = link_to "Edit #{object.class.name}", edit_banner_path(object)
     .card-block
       h3 = object.title
       p = object.description

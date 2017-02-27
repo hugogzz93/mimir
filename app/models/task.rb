@@ -5,8 +5,16 @@ class Task < ApplicationRecord
   def value
     self.class.where(status: :done, date: self.date).count
   end
-  
-  def self.label
-    "Completed"
+
+  class << self
+	  def label
+	    "Completed"
+	  end
+
+	  def tasks_for(date, scope)
+      where(date: date.method("beginning_of_#{scope}").call()..
+                         date.method("end_of_#{scope}").call())
+	  end
   end
+  
 end

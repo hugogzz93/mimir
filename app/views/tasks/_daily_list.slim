@@ -1,0 +1,6 @@
+.card
+	.card-header = "Tasks for #{date.strftime('%d/%m')}"
+	.card-content
+		ul.list-group
+		- objects.each do |o|
+		  li.list-group-item = o.description
