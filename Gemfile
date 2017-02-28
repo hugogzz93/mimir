@@ -21,6 +21,8 @@ gem 'chart-js-rails'
 
 gem 'gon'
 
+gem 'redcarpet'
+
 # datetimepicker
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
