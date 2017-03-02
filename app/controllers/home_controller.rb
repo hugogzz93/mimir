@@ -8,4 +8,7 @@ class HomeController < ApplicationController
     gon.objects = @objects.map { |x| x.class.name.downcase }
     gon.object_data = @object_data
   end
+
+  def calendar
+  end
 end
