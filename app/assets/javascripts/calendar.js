@@ -117,10 +117,15 @@ $(document).on('home#calendar:loaded', function() {
 		this.modal.attr('data-event', event.parent().attr('data-event'));
 
 		//update event content
-		this.modalBody.find('.event-info').load(event.parent().attr('data-content')+'.html .event-info > *', function(data){
-			//once the event content has been loaded
-			self.element.addClass('content-loaded');
-		});
+		// this.modalBody.find('.event-info').load(event.parent().attr('data-content')+'.html .event-info > *', function(data){
+		// 	//once the event content has been loaded
+		// 	self.element.addClass('content-loaded');
+		// });
+		// this.modalBody.find('.event-info').html("<div>Abs Circuit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, unde, nulla. Vel unde deleniti, distinctio inventore quis molestiae perferendis, eum quo harum dolorum reiciendis sunt dicta maiores similique! Officiis repellat iure odio debitis enim eius commodi quae deserunt quam assumenda, ab asperiores reiciendis minima maxime odit laborum, libero veniam non? </div>")
+		this.modalBody.find('.event-info').html('<div>' + event.parent().data('content') + '</div>')
+		setTimeout(function(){
+			self.element.addClass('content-loaded')
+		}, 300)
 
 		this.element.addClass('modal-is-open');
 
