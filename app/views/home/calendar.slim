@@ -1,44 +1,11 @@
 .cd-schedule.loading
   .timeline
     ul
-      li
-        span 09:00
-      li
-        span 09:30
-      li
-        span 10:00
-      li
-        span 10:30
-      li
-        span 11:00
-      li
-        span 11:30
-      li
-        span 12:00
-      li
-        span 12:30
-      li
-        span 13:00
-      li
-        span 13:30
-      li
-        span 14:00
-      li
-        span 14:30
-      li
-        span 15:00
-      li
-        span 15:30
-      li
-        span 16:00
-      li
-        span 16:30
-      li
-        span 17:00
-      li
-        span 17:30
-      li
-        span 18:00
+      - (9..18).each do |n|
+        li
+          span = "#{'%02d' % n}:00"
+        li
+          span = "#{'%02d' % n}:30"
   /! .timeline
   .events
     ul
