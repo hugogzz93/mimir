@@ -5,15 +5,17 @@ div class="alert alert-#{@state > 0 ? 'success' : 'danger'}" role="alert"
   | Savings : 
   strong = "$ #{@state}"
 
-ul.nav.nav-tabs
-  - @objects.each do |o|
-    li.nav-item
-      a.nav-link data-toggle="tab" href="##{o.class.name}" = o.class.name.capitalize 
-
-.tab-content
-  - @objects.each do |o|
-    .tab-pane role="tabpanel" id="#{o.class.name.capitalize}"
-      = render partial: 'shared/form', locals: {object: o, ajax: true}
+.card
+  .card-header
+    ul.nav.nav-tabs
+      - @objects.each do |o|
+        li.nav-item
+          a.nav-link data-toggle="tab" href="##{o.class.name}" = o.class.name.capitalize 
+  .card-block
+    .tab-content
+      - @objects.each do |o|
+        .tab-pane role="tabpanel" id="#{o.class.name.capitalize}"
+          = render partial: 'shared/form', locals: {object: o, ajax: true}
 
 - @objects.each do |o|
   .card

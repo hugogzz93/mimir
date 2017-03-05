@@ -10,5 +10,6 @@ class HomeController < ApplicationController
   end
 
   def calendar
+    current_user.events_for 'week'
   end
 end
