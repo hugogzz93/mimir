@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -9,11 +9,11 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
-gem "paranoia", "~> 2.2"
+gem 'paranoia', '~> 2.2'
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
-gem "slim-rails"
+gem 'slim-rails'
 
 gem 'simple_form'
 
@@ -69,7 +69,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "better_errors"
+  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'factory_girl_rails'
   gem 'ffaker'

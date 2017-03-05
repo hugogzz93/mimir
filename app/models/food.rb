@@ -2,7 +2,7 @@ class Food < ApplicationRecord
   acts_as_paranoid
 
   def self.label
-    "Registered"
+    'Registered'
   end
 
   def value

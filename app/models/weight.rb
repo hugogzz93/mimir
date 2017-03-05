@@ -4,7 +4,6 @@ class Weight < ApplicationRecord
   belongs_to :user, dependent: :destroy
 
   def self.label
-    "Kg."
+    'Kg.'
   end
-  
 end

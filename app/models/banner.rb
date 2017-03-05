@@ -6,12 +6,12 @@ class Banner < ApplicationRecord
   end
 
   def rendered_description
-  	renderer = Redcarpet::Render::HTML.new(render_options = {})
-  	markdown = Redcarpet::Markdown.new(renderer, extensions = {})
-  	markdown.render(description)
+    renderer = Redcarpet::Render::HTML.new(render_options = {})
+    markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+    markdown.render(description)
   end
-  
+
   def self.label
-    "Duration"
+    'Duration'
   end
 end

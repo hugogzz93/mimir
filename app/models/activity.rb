@@ -5,10 +5,10 @@ class Activity < ApplicationRecord
 
   def value
     # time in hours
-    (self.end - self.start) / 60 / 60
+    (self.end - start) / 60 / 60
   end
 
   def self.label
-    "Duration"
+    'Duration'
   end
 end
