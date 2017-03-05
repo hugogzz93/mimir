@@ -10,6 +10,6 @@ class HomeController < ApplicationController
   end
 
   def calendar
-    current_user.events_for 'week'
+    @events = current_user.events_for('week').group_by(&:week_day)
   end
 end

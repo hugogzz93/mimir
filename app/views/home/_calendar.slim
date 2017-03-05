@@ -1,0 +1,14 @@
+ul
+  - events.delete_if {|x| ["Saturday", "Sunday"].include? x}
+  - events.each do |day, eve|
+    li.events-group
+      .top-info
+        span = day
+
+      ul
+        - eve.each do |e|
+          = render partial: 'calendar_event',
+                   locals: { event_content: e.description,
+                             event_start: e.start_time.strftime('%H:%M'),
+                             event_end: e.end_time.strftime('%H:%M'),
+                             event_name: e.name}

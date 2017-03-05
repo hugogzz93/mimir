@@ -5,4 +5,12 @@ class Event < ApplicationRecord
 			by_date(date, range).where scope
 		end
 	end
+
+	def day
+		date.day
+	end
+
+	def week_day
+		date.strftime('%A')
+	end
 end

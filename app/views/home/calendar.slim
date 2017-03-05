@@ -2,87 +2,15 @@
 .cd-schedule.loading
   .timeline
     ul
-      - (9..18).each do |n|
+      - (6..23).each do |n|
         li
           span = "#{'%02d' % n}:00"
         li
           span = "#{'%02d' % n}:30"
   /! .timeline
   .events
-    ul
-      li.events-group
-        .top-info
-          span Monday
-        ul
-          li.single-event data-content="Lorem ipsum dolor sit amet" data-end="10:30" data-event="event-1" data-start="09:30"
-              em.event-name Abs Circuit
-          li.single-event data-content="event-rowing-workout" data-end="12:30" data-event="event-2" data-start="11:00" 
-            a href="#0" 
-              em.event-name Rowing Workout
-          li.single-event data-content="Lorem ipsum dolor sit" data-end="15:15" data-event="event-3" data-start="14:00" 
-            a href="#0" 
-              em.event-name Yoga Level 1
-      li.events-group
-        .top-info
-          span Tuesday
-        ul
-          li.single-event data-content="event-rowing-workout" data-end="11:00" data-event="event-2" data-start="10:00" 
-            a href="#0" 
-              em.event-name Rowing Workout
-          li.single-event data-content="event-restorative-yoga" data-end="13:00" data-event="event-4" data-start="11:30" 
-            a href="#0" 
-              em.event-name Restorative Yoga
-          li.single-event data-content="event-abs-circuit" data-end="15:00" data-event="event-1" data-start="13:30" 
-            a href="#0" 
-              em.event-name Abs Circuit
-          li.single-event data-content="event-yoga-1" data-end="16:45" data-event="event-3" data-start="15:45" 
-            a href="#0" 
-              em.event-name Yoga Level 1
-      li.events-group
-        .top-info
-          span Wednesday
-        ul
-          li.single-event data-content="event-restorative-yoga" data-end="10:15" data-event="event-4" data-start="09:00" 
-            a href="#0" 
-              em.event-name Restorative Yoga
-          li.single-event data-content="event-yoga-1" data-end="11:45" data-event="event-3" data-start="10:45" 
-            a href="#0" 
-              em.event-name Yoga Level 1
-          li.single-event data-content="event-rowing-workout" data-end="13:45" data-event="event-2" data-start="12:00" 
-            a href="#0" 
-              em.event-name Rowing Workout
-          li.single-event data-content="event-yoga-1" data-end="15:00" data-event="event-3" data-start="13:45" 
-            a href="#0" 
-              em.event-name Yoga Level 1
-      li.events-group
-        .top-info
-          span Thursday
-        ul
-          li.single-event data-content="event-abs-circuit" data-end="10:30" data-event="event-1" data-start="09:30" 
-            a href="#0" 
-              em.event-name Abs Circuit
-          li.single-event data-content="event-restorative-yoga" data-end="13:45" data-event="event-4" data-start="12:00" 
-            a href="#0" 
-              em.event-name Restorative Yoga
-          li.single-event data-content="event-abs-circuit" data-end="16:30" data-event="event-1" data-start="15:30" 
-            a href="#0" 
-              em.event-name Abs Circuit
-          li.single-event data-content="event-rowing-workout" data-end="18:30" data-event="event-2" data-start="17:00" 
-            a href="#0" 
-              em.event-name Rowing Workout
-      li.events-group
-        .top-info
-          span Friday
-        ul
-          li.single-event data-content="event-rowing-workout" data-end="11:00" data-event="event-2" data-start="10:00" 
-            a href="#0" 
-              em.event-name Rowing Workout
-          li.single-event data-content="event-abs-circuit" data-end="14:00" data-event="event-1" data-start="12:30" 
-            a href="#0" 
-              em.event-name Abs Circuit
-          li.single-event data-content="event-yoga-1" data-end="16:45" data-event="event-3" data-start="15:45" 
-            a href="#0" 
-              em.event-name Yoga Level 1
+    = render partial: 'calendar', locals: { events: @events }
+    
   .event-modal
     header.header
       .content
