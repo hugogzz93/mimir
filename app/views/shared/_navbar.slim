@@ -4,4 +4,5 @@ nav.navbar.navbar-default.navbar-toggleable-md.navbar-light.bg-faded
       ul.navbar-nav.mr-auto
       	li.nav-link Dashboard
       	li.nav-link Logs
-      	li.nav-link Calendar
+      	li
+      		= link_to 'Calendar', calendar_path, class: 'nav-link'

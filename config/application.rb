@@ -21,5 +21,15 @@ module Mimir
     config.i18n.default_locale = :en
 
     config.autoload_paths << Rails.root.join('lib')
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+    config.generators do |g|
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.view_specs false
+      g.helper_specs false
+      g.stylesheets = false
+      g.javascripts = false
+      g.helper = false
+    end
   end
 end

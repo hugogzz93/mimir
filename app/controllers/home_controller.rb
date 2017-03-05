@@ -8,4 +8,8 @@ class HomeController < ApplicationController
     gon.objects = @objects.map { |x| x.class.name.downcase }
     gon.object_data = @object_data
   end
+
+  def calendar
+    @events = current_user.events_for('week').group_by(&:week_day)
+  end
 end

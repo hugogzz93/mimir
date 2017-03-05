@@ -1,0 +1,25 @@
+= render partial: 'event_form'
+.cd-schedule.loading
+  .timeline
+    ul
+      - (6..23).each do |n|
+        li
+          span = "#{'%02d' % n}:00"
+        li
+          span = "#{'%02d' % n}:30"
+  /! .timeline
+  .events
+    = render partial: 'calendar', locals: { events: @events }
+    
+  .event-modal
+    header.header
+      .content
+        span.event-date
+        h3.event-name
+      .header-bg
+    .body
+      .event-info
+      .body-bg
+    a.close href="#0"  Close
+  .cover-layer
+/! .cd-schedule
