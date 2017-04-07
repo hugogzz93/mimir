@@ -2,10 +2,10 @@
   = f.error_notification
 
   .form-inputs
+	  - object.attributes.each do |attr|
+	    - unless ["id","created_at","updated_at","deleted_at", "user_id", "status"].include? attr.first
+	      = f.input attr.first.to_sym 
   = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-  - object.attributes.each do |attr|
-    - unless ["id","created_at","updated_at","deleted_at", "user_id", "status"].include? attr.first
-      = f.input attr.first.to_sym 
 
   .form-actions
     = f.button :submit, class: 'btn-primary'

@@ -15,12 +15,18 @@ div class="alert alert-#{@state > 0 ? 'success' : 'danger'}" role="alert"
     .tab-content
       - @objects.each do |o|
         .tab-pane role="tabpanel" id="#{o.class.name.capitalize}"
-          = render partial: 'shared/form', locals: {object: o, ajax: true}
+          - if o.class.name != 'Money'
+            = render partial: 'shared/form', locals: {object: o, ajax: true}
+          - else
+            = render partial: "money/form", locals:\
+                    { object: o, ajax: true, tags: Tag.all }
 
-- @objects.each do |o|
+
+
+- @graph_objects.each do |o|
   .card
     .card-header
-      = o.class.name
+      = o.name
     .card-block
-      canvas id="#{o.class.name.downcase}-chart"
+      canvas id="#{o.name.downcase}-chart"
 

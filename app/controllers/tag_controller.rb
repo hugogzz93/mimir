@@ -1,2 +1,3 @@
 class TagController < CrudController
+	
 end

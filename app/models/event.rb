@@ -2,6 +2,12 @@ class Event < ApplicationRecord
   include Valued
   belongs_to :user
   class << self
+
+    def by_date(date, scope)
+      where(date: date.method("beginning_of_#{scope}").call..
+                        date.method("end_of_#{scope}").call) 
+    end
+
     def events_for(scope, date, range)
       by_date(date, range).where scope
     end

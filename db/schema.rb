@@ -10,102 +10,114 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_170_303_141_750) do
+ActiveRecord::Schema.define(version: 20170407130916) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'activities', force: :cascade do |t|
-    t.string   'name'
-    t.datetime 'start'
-    t.datetime 'end'
-    t.integer  'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.datetime 'deleted_at'
-    t.index ['deleted_at'], name: 'index_activities_on_deleted_at', using: :btree
-    t.index ['user_id'], name: 'index_activities_on_user_id', using: :btree
+  create_table "activities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_activities_on_deleted_at", using: :btree
+    t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
   end
 
-  create_table 'banners', force: :cascade do |t|
-    t.string   'title', null: false
-    t.text     'description'
-    t.datetime 'created_at',  null: false
-    t.datetime 'updated_at',  null: false
+  create_table "banners", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table 'events', force: :cascade do |t|
-    t.string   'name'
-    t.text     'description'
-    t.datetime 'date'
-    t.time     'start_time'
-    t.time     'end_time'
-    t.integer  'user_id'
-    t.datetime 'created_at',  null: false
-    t.datetime 'updated_at',  null: false
-    t.index ['user_id'], name: 'index_events_on_user_id', using: :btree
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
-  create_table 'foods', force: :cascade do |t|
-    t.string   'name',       null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.datetime 'deleted_at'
-    t.index ['deleted_at'], name: 'index_foods_on_deleted_at', using: :btree
+  create_table "foods", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_foods_on_deleted_at", using: :btree
   end
 
-  create_table 'money', force: :cascade do |t|
-    t.float    'value',      null: false
-    t.integer  'user_id',    null: false
-    t.boolean  'expense',    null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.datetime 'deleted_at'
-    t.index ['deleted_at'], name: 'index_money_on_deleted_at', using: :btree
-    t.index ['user_id'], name: 'index_money_on_user_id', using: :btree
+  create_table "money", force: :cascade do |t|
+    t.float    "value",      null: false
+    t.integer  "user_id",    null: false
+    t.boolean  "expense",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_money_on_deleted_at", using: :btree
+    t.index ["user_id"], name: "index_money_on_user_id", using: :btree
   end
 
-  create_table 'tags', force: :cascade do |t|
-    t.string   'name',       null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.datetime 'deleted_at'
-    t.index ['deleted_at'], name: 'index_tags_on_deleted_at', using: :btree
+  create_table "tag_relations", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.string   "taggable_type"
+    t.integer  "taggable_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["tag_id"], name: "index_tag_relations_on_tag_id", using: :btree
+    t.index ["taggable_type", "taggable_id"], name: "index_tag_relations_on_taggable_type_and_taggable_id", using: :btree
   end
 
-  create_table 'tasks', force: :cascade do |t|
-    t.datetime 'date'
-    t.integer  'status', default: 0, null: false
-    t.text     'description',             null: false
-    t.datetime 'created_at',              null: false
-    t.datetime 'updated_at',              null: false
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_tags_on_deleted_at", using: :btree
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string   'email',                  default: '', null: false
-    t.string   'encrypted_password',     default: '', null: false
-    t.string   'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.integer  'sign_in_count', default: 0, null: false
-    t.datetime 'current_sign_in_at'
-    t.datetime 'last_sign_in_at'
-    t.inet     'current_sign_in_ip'
-    t.inet     'last_sign_in_ip'
-    t.datetime 'created_at',                          null: false
-    t.datetime 'updated_at',                          null: false
-    t.datetime 'deleted_at'
-    t.index ['deleted_at'], name: 'index_users_on_deleted_at', using: :btree
-    t.index ['email'], name: 'index_users_on_email', unique: true, using: :btree
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true, using: :btree
+  create_table "tasks", force: :cascade do |t|
+    t.datetime "date"
+    t.integer  "status",      default: 0, null: false
+    t.text     "description",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
-  create_table 'weights', force: :cascade do |t|
-    t.float    'value'
-    t.integer  'user_id',    null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.datetime 'deleted_at'
-    t.index ['deleted_at'], name: 'index_weights_on_deleted_at', using: :btree
-    t.index ['user_id'], name: 'index_weights_on_user_id', using: :btree
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
+
+  create_table "weights", force: :cascade do |t|
+    t.float    "value"
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_weights_on_deleted_at", using: :btree
+    t.index ["user_id"], name: "index_weights_on_user_id", using: :btree
+  end
+
 end

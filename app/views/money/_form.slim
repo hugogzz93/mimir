@@ -1,0 +1,9 @@
+= simple_form_for object, remote: ajax do |f|
+	.form-inputs
+		= f.input :value
+		= f.simple_fields_for :tag_relations do |m|
+			= m.input :tag_id
+		= f.input :expense
+		= f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+	.form-actions
+    = f.button :submit, class: 'btn-primary'
