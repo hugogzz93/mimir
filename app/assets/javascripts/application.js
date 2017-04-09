@@ -18,6 +18,8 @@
 //= require sweetalert.min.js
 //= require Chart
 //= require selectize.js
+//= require moment.js
+//= require datetimepicker.js
 //= require_tree .
 
 $(document).on("turbolinks:load", function(){

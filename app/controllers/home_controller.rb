@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @exclude_autogen = [ Money ]
     @objects = [Money.new, Activity.new, Weight.new, Task.new, Banner.new, Event.new, Tag.new]
     @graph_objects = [Money, Weight, Activity]
-    @object_data = @graph_objects.map { |x| x.chart_digest({}, Time.zone.now, 'year') }
+    @object_data = @graph_objects.map { |x| x.chart_digest({}, Time.zone.now, 'month') }
     gon.objects = @graph_objects.map { |x| x.name.downcase }
     gon.object_data = @object_data
     gon.tags = Tag.all.collect {|x| {name: x.name} }
