@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
   get 'home/calendar', to: 'home#calendar', as: 'calendar'
-  resources :money, :banners, :tasks, :activities, :weights, :foods, :events
+  resources :money, :banners, :tasks, :activities, :weights, :foods, :events, :tags
+
+  get 'users/:id/expenses', to: 'users#expenses', as: 'expenses'
 
   # get 'activity/create'
 

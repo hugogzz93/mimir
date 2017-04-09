@@ -2,7 +2,7 @@ nav.navbar.navbar-default.navbar-toggleable-md.navbar-light.bg-faded
   = link_to 'Mimir', root_path, class: "navbar-brand"
   #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
-      	li.nav-link Dashboard
-      	li.nav-link Logs
+      	li.nav-link
+      		= link_to 'Expenses', expenses_path(id: current_user.id)
       	li
       		= link_to 'Calendar', calendar_path, class: 'nav-link'

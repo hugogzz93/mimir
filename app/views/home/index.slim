@@ -24,9 +24,5 @@ div class="alert alert-#{@state > 0 ? 'success' : 'danger'}" role="alert"
 
 
 - @graph_objects.each do |o|
-  .card
-    .card-header
-      = o.name
-    .card-block
-      canvas id="#{o.name.downcase}-chart"
+  = render partial: 'shared/chart', locals: {object: o}
 

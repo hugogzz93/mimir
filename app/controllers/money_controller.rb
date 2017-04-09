@@ -24,5 +24,4 @@ class MoneyController < CrudController
 		  end
 		end
 	end
-
 end

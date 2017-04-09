@@ -28,5 +28,16 @@ class Money < ApplicationRecord
         borderColor: '#E53A40'
       }]
     end
+
+    def get_total_per_tag_for_user(user)
+      query = "SELECT ttrm.name, sum(ttrm.value) 
+                from (( tags t join tag_relations tr on t.id = tag_id ) as ttr 
+                join money m on m.id = ttr.taggable_id) as ttrm 
+                join users u on ttrm.user_id = u.id 
+                where u.id = #{user.id} 
+                group by ttrm.name;"
+      return ActiveRecord::Base.connection.execute(query)
+    end
+
   end
 end
