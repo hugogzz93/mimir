@@ -23,7 +23,6 @@ gem 'gon'
 
 gem 'redcarpet'
 
-gem 'rails_12factor', group: :production
 
 # datetimepicker
 gem 'momentjs-rails', '>= 2.9.0'
