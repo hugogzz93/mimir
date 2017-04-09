@@ -4,9 +4,13 @@
 		= simple_form_for :event, {url: events_path, method: :post} do |f|
 			= f.input :user_id, input_html: { value: current_user.id }, as:\
 																		:hidden
+
 			= f.input :name
 			= f.input :description, as: :text
-			= f.input :date, as: :datetime
-			= f.input :start_time, as: :time
-			= f.input :end_time, as: :time
+			= f.input :date, as: :date
+			.row
+				.col-2
+					= f.input :start_time, as: :time
+				.col-2
+					= f.input :end_time, as: :time
 			= f.button :submit, 'Create', class: 'btn-primary'

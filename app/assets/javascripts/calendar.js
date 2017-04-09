@@ -1,5 +1,9 @@
 $(document).on('home#calendar:loaded', function() {
 
+	$('.card-header').on('click', function () {
+		$('.card').toggleClass('active')
+	})
+
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
 	var transitionsSupported = ( $('.csstransitions').length > 0 );
 	//if browser does not support transitions - use a different event to trigger them

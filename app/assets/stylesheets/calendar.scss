@@ -1,10 +1,26 @@
-body[data-action="calendar"] {  
+body[data-controller="home"][data-action="calendar"] {  
 
   .card {
     .card-block {
       overflow: hidden;
       max-height: 0px;
+      transition: all 0.3s ease-out;
     }
+
+    &.active {
+      .card-block {
+        max-height: none;
+        transition: all 0.3s ease-out;
+      }
+    }
+  }
+
+  textarea {
+    height: 5em;
+  }
+
+  .events-group {
+    height: 417vh;
   }
 
 

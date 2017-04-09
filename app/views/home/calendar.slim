@@ -9,7 +9,7 @@
           span = "#{'%02d' % n}:30"
   /! .timeline
   .events
-    = render partial: 'calendar', locals: { events: @events }
+    = render partial: 'calendar', locals: { week: @week, events: @events }
     
   .event-modal
     header.header
