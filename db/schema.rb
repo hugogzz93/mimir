@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407130916) do
+ActiveRecord::Schema.define(version: 20170409043009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 20170407130916) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "body_statistics", force: :cascade do |t|
+    t.float    "fat_percentage"
+    t.float    "water_percentage"
+    t.float    "muscle_percentage"
+    t.float    "bones_percentage"
+    t.integer  "user_id",           null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["deleted_at"], name: "index_body_statistics_on_deleted_at", using: :btree
+    t.index ["user_id"], name: "index_body_statistics_on_user_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|

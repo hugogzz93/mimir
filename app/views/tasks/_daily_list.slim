@@ -3,4 +3,5 @@
 	.card-content
 		ul.list-group
 		- objects.each do |o|
-		  li.list-group-item = o.description
+		  li.list-group-item.task class="#{o.status}" data-task-id="#{o.id}"
+		  	= o.description

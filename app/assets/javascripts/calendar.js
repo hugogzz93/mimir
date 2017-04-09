@@ -4,7 +4,7 @@ $(document).on('home#calendar:loaded', function() {
 		$('.card').toggleClass('active')
 	})
 
-	$('select').selectize();
+	// $('select').selectize();
 
 
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';

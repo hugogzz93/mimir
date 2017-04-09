@@ -22,3 +22,16 @@ $(document).on 'home#index:loaded', ->
 			value: input,
 			text: input
 	}
+
+	$('li.task').on 'click', (e) ->
+		id = $(e.target).data('task-id')
+		$.ajax({
+			url: "/tasks/#{id}",
+			method: 'PATCH',
+			data: {task: {status: 2}},
+			success: (x) =>
+				$(e.target).removeClass('pending')
+									 .addClass('done')
+			,
+			dataType: "json"
+		});

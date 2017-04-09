@@ -9,6 +9,14 @@ body[data-action="index"] {
   color: $text-color;
   background-color: $body-bg;
 
+  li {
+  	&.task {
+  		&.done {
+  			background-color: green;
+  		}
+  	}
+  }
+
 	.card {
 	  border: 1px solid $card-default-border;
 	  margin-bottom: 1%;

@@ -1,0 +1,2 @@
+class BodyStatisticsController < CrudController
+end

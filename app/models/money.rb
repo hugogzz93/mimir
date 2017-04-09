@@ -1,7 +1,7 @@
 class Money < ApplicationRecord
   include Valued
   acts_as_paranoid
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many :tag_relations, as: :taggable
   has_many :tags, through: :tag_relations
 

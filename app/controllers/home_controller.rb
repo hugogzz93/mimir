@@ -4,8 +4,10 @@ class HomeController < ApplicationController
     @banner = Banner.last
     @tasks =  Task.tasks_for Time.zone.now, 'day'
     @exclude_autogen = [ Money ]
-    @objects = [Money.new, Activity.new, Weight.new, Task.new, Banner.new, Event.new, Tag.new]
-    @graph_objects = [Money, Weight, Activity]
+    @objects = [Money.new, Activity.new, Weight.new, BodyStatistic.new,
+                Task.new, Event.new,
+                Tag.new, Banner.new]
+    @graph_objects = [Money, Weight, Activity, BodyStatistic]
     @object_data = @graph_objects.map { |x| x.chart_digest({}, Time.zone.now, 'month') }
     gon.objects = @graph_objects.map { |x| x.name.downcase }
     gon.object_data = @object_data
