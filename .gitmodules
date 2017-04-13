@@ -1,0 +1,3 @@
+[submodule "lib/valued"]
+	path = lib/valued
+	url = git@github.com:hugogzz93/valued.git
