@@ -20,9 +20,9 @@ module Mimir
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
 
-    config.autoload_paths << Rails.root.join('lib')
-    config.eager_load_paths << Rails.root.join('lib')
-    config.eager_load_paths << Rails.root.join('vendor')
+    config.autoload_paths += Dir[Rails.root.join('lib', '{**}')]
+    # config.eager_load_paths << Rails.root.join('lib', '**/')
+    # config.eager_load_paths << Rails.root.join('vendor')
     config.active_record.time_zone_aware_types = [:datetime, :time]
     config.generators do |g|
       g.test_framework :rspec, fixture: true

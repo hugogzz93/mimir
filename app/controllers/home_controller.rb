@@ -8,7 +8,7 @@ class HomeController < ApplicationController
                 Task.new, Event.new,
                 Tag.new, Banner.new]
     @graph_objects = [Money, Weight, Activity, BodyStatistic]
-    @object_data = @graph_objects.map { |x| x.chart_digest({}, Time.zone.now, 'month') }
+    @object_data = @graph_objects.map { |x| x.chart_digest({}, {}, Time.zone.now, 'month') }
     gon.objects = @graph_objects.map { |x| x.name.downcase }
     gon.object_data = @object_data
     gon.tags = Tag.all.collect {|x| {name: x.name} }

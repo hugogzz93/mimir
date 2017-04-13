@@ -15,7 +15,7 @@ class Money < ApplicationRecord
       Money.where(expense: true).map(&:value).reduce(:+)
     end
 
-    def chart_datasets(objects)
+    def chart_datasets(objects, options)
       [{
         label: 'Income',
         data: objects.where(expense: false).map(&:value),

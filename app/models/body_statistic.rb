@@ -7,7 +7,7 @@ class BodyStatistic < ApplicationRecord
 			'Body Statistics'
 		end
 
-		def chart_datasets(objects)
+		def chart_datasets(objects, options)
 			[{
 				label: 'Fat %',
 				data: objects.map(&:fat_percentage),
