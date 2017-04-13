@@ -12,7 +12,9 @@ body[data-action="index"] {
   li {
   	&.task {
   		&.done {
-  			background-color: green;
+  			background-color: $soft-green;
+  			border-color: $soft-green-border;
+  			color: $soft-green-font;
   		}
   	}
   }
